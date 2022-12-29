@@ -45,3 +45,15 @@ vim /etc/profile <-- configuration for each environment variables
         else
             statement3
         fi
+
+### Case function
+    -   <option1>) <command_to_execute>;;
+        <option2>) <command_to_execute>;;
+        <optionn>) <command_to_execute>;;
+        *) <command_to_execute_for_default_option>;;
+
+### Arrays
+    -   Show all elements --> ${array[*]}
+    -   Show size of the array --> ${#array[*]}
+    -   Show specific element from n position --> ${array[n]}
+    -   Delete an element from n position in the array --> unset array[n]
