@@ -1,0 +1,2 @@
+Values writen with echo
+values with cat
