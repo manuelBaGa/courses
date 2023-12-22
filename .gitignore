@@ -3,3 +3,4 @@ bash_shell/9_options.sh.gz
 selenium_course/PythonSelFramework/tests/*.png
 selenium_course/PythonSelFramework/selenium_env
 .idea
+__pycache__
