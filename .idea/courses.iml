@@ -4,6 +4,7 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/selenium_course/.pytest_cache/v" />
       <excludeFolder url="file://$MODULE_DIR$/selenium_course/PythonSelFramework/.pytest_cache/v" />
+      <excludeFolder url="file://$MODULE_DIR$/selenium_course/PythonSelFramework/selenium_env" />
       <excludeFolder url="file://$MODULE_DIR$/selenium_course/PythonSelFramework/selenium_env/Lib" />
       <excludeFolder url="file://$MODULE_DIR$/selenium_course/PythonSelFramework/selenium_env/Scripts" />
       <excludeFolder url="file://$MODULE_DIR$/selenium_course/PythonSelFramework/tests/.pytest_cache/v" />
