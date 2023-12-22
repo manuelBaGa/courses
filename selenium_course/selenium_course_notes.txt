@@ -1,0 +1,22 @@
+-> Any pytest file should start with test_
+-> pytest method names should start with test
+-> Any code should be wrapped in method only
+-> Method name should have sens
+-> -k stands for method names execution
+-> -s logs in out put
+-> -v stands for more inform metadata
+-> Execute project:
+    py.test -v -s
+    py.test <test_file_name> -v -s
+    py.test -k <regular_expression> -v -s    <---To execute scenarios that match the regular expression
+    py.test --html=report.html  <-- To generate html reports for execution
+    py.test -m <mark_name> -v -s
+        ->mark example: @pytest.mark.smoke   <---Write above beggining of the function
+                        @pytest.mark.skip    <---Skip scenario
+                        @pytest.mark.xfail   <---Not execute nor report.
+->  fixtures are used as setup and tear down methods for test cases- conftest files to generalize
+                fixture and make it available to all test cases.
+-> Data driven and parameterization can be done with return statements in tuple format --> see conftest.py LoadData
+                fixture and execute test_demoing_pytest.py
+-> Run jenkins:
+         java -jar jenkins.war
