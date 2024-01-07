@@ -1,0 +1,3 @@
+[submodule "cypress-course-app"]
+	path = cypress/official_tutorial/cypress-realworld-testing-course-app
+	url = https://github.com/cypress-io/cypress-realworld-testing-course-app.git
