@@ -4,3 +4,4 @@ selenium_course/PythonSelFramework/tests/*.png
 selenium_course/PythonSelFramework/selenium_env
 .idea
 __pycache__
+HTML/imagenes
