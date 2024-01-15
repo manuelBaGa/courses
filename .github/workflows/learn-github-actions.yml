@@ -1,7 +1,7 @@
 name: learn-github-actions
 run-name: ${{ github.actor }} is learning GitHub Actions
 on:
-  [push]
+  workflow_dispatch
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,6 +12,8 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.8 #install the python needed
+          ref: # branch
+            main
       - name: execute py script # run file
         run: |
           python tests/assignment_task.py
