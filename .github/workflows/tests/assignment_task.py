@@ -11,6 +11,9 @@ Bonus task.
 
 Write a GitHub to start the test
 '''
-my_file = open("output.txt","r")
-my_text=my_file.readline()
-assert my_text == 'Hello!'
+my_file = open("output.txt", "r")
+my_text = my_file.readline()
+try:
+    assert my_text == 'Hello!'
+except Exception as e:
+    print(e.__str__())

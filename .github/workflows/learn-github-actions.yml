@@ -14,4 +14,4 @@ jobs:
           python-version: 3.8 #install the python needed
       - name: execute py script # run file
         run: |
-          python assignment_task.py
+          python tests/assignment_task.py
