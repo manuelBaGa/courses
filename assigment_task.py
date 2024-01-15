@@ -1,0 +1,16 @@
+'''
+The task:
+
+The engineering team developed an application. This application is supposed to create an output file “output.txt” and somewhere in this file there should be a line:
+
+Hello!
+
+Please write an automated test. If the file “output.txt” is found and contains a line “Hello!” anywhere in the file the test succeeds, otherwise it fails.
+
+Bonus task.
+
+Write a GitHub to start the test
+'''
+my_file = open("output.txt","r")
+my_text=my_file.readline()
+assert my_text == 'Hello!'
