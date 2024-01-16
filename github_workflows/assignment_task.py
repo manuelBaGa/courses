@@ -11,10 +11,10 @@ Bonus task.
 
 Write a GitHub to start the test
 '''
-my_file = open("output.txt", "r")
+my_file = open("./output.txt", "r")
 my_text = my_file.readline()
 try:
     assert my_text == 'Hello!'
     print("Assertion is correct")
 except Exception as e:
-    print("We have this exception: ", e.__str__())
+    print("We have this exception: ", e.__str__)
