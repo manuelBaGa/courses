@@ -11,10 +11,15 @@ Bonus task.
 
 Write a GitHub to start the test
 '''
-my_file = open("github_workflows/output.txt", "r")
-my_text = my_file.readline()
 try:
-    assert my_text == 'Hello!'
-    print("Assertion is correct")
+    my_file = open("github_workflows/output.txt", "r")#github_workflows
+    line=my_file.readline()
+    while line != '':
+        if 'Hello!' in line:
+            print('Test passed: Hello! was found in the text')
+            break
+        line = my_file.readline()
+    else:
+        print('Test failed: Hello! is not in the text')
 except Exception as e:
-    print("We have this exception: ", e.__str__)
+    print("Test failed due to this exception: ", e)
