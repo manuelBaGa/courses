@@ -11,7 +11,7 @@ Bonus task.
 
 Write a GitHub to start the test
 '''
-my_file = open("./output.txt", "r")
+my_file = open("github_workflows/output.txt", "r")
 my_text = my_file.readline()
 try:
     assert my_text == 'Hello!'
