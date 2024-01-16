@@ -16,4 +16,4 @@ jobs:
             main
       - name: execute py script # run file
         run: |
-          python tests/assignment_task.py
+          python github_workflows/assignment_task.py
