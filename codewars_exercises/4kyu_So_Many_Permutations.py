@@ -28,3 +28,4 @@ def permutations(s):
 test_string = 'aabb'
 my_permutations = permutations(test_string)
 print(my_permutations)
+print(set(itertools.permutations(range(567))))
