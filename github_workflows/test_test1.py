@@ -11,15 +11,20 @@ Bonus task.
 
 Write a GitHub to start the test
 '''
-try:
-    my_file = open("github_workflows/output.txt", "r")#github_workflows
+import pytest
+
+def test_my_automated_test():
+    my_file = open("output.txt", "r")#github_workflows
     line=my_file.readline()
+
     while line != '':
         if 'Hello!' in line:
-            print('Test passed: Hello! was found in the text')
+            print('Hello! was found in the text')
             break
+
         line = my_file.readline()
     else:
-        print('Test failed: Hello! is not in the text')
-except Exception as e:
-    print("Test failed due to this exception: ", e)
+        raise Exception('Hello! was not found in the text')
+
+
+

@@ -14,4 +14,4 @@ jobs:
           python-version: 3.8 #install the python needed
       - name: execute py script # run file
         run: |
-          python github_workflows/assignment_task.py
+          python github_workflows/test_test1.py

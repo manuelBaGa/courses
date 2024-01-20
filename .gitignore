@@ -2,6 +2,9 @@ bash_shell/9_options.sh.gz
 *.log
 selenium_course/PythonSelFramework/tests/*.png
 selenium_course/PythonSelFramework/selenium_env
-.idea
 __pycache__
 HTML/imagenes
+github_workflows/node_modules
+github_workflows/.pytest_cache
+github_workflows/package*
+.idea/
