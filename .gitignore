@@ -8,3 +8,4 @@ github_workflows/node_modules
 github_workflows/.pytest_cache
 github_workflows/package*
 .idea/
+appium/images
