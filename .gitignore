@@ -4,8 +4,13 @@ selenium_course/PythonSelFramework/tests/*.png
 selenium_course/PythonSelFramework/selenium_env
 __pycache__
 HTML/imagenes
+.idea/
+# Github_workflows
 github_workflows/node_modules
 github_workflows/.pytest_cache
 github_workflows/package*
-.idea/
+
+# Appium
 appium/images
+appium/*.bat
+appium/*.ini
