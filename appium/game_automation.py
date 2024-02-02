@@ -25,7 +25,7 @@ web_driver_wait_val = config['APPIUM']['WEB_DRIVER_WAIT']
 package_name = config['APPIUM']['APP_PACKAGE_NAME']
 
 # Game mode
-number_of_battles = config['GAME_MODE']['NUMBER_OF_BATTLES']
+number_of_battles = int(config['GAME_MODE']['NUMBER_OF_BATTLES'])
 
 capabilities = dict(
     platformName=cfg_platformName,
@@ -64,5 +64,5 @@ elif game_flow == 'arena':
     my_gmf.arena_battles()
     my_gmf.close_game(package_name)
 elif game_flow == 'test':
-    my_gmf.open_app(package_name)
+    print("This is just a test")
     

@@ -15,7 +15,8 @@ class gameflow():
     main_primary_screen_btn = (1450, 2090)
 
     #Portal
-    portal_swipe = (middle_screen_x, 2100, middle_screen_x, 60, 2500)
+    portal_swipe_down = (middle_screen_x, 2100, middle_screen_x, 60, 200)
+    portal_swipe_up = (middle_screen_x, 1000, middle_screen_x, 1800, 2000)
     portal_energy_mission = (middle_screen_x, 1350)
     portal_coins_mission = (middle_screen_x, 1900)
     portal_choose_mision = (middle_screen_x, 1070)
@@ -105,7 +106,7 @@ class gameflow():
             TouchAction(self.driver).tap(None, *self.invasion_challenge_btn).perform()
             time.sleep(1)
             TouchAction(self.driver).tap(None, *self.invasion_battle_btn).perform()
-            time.sleep(30)
+            time.sleep(45)
             self.wait.until(lambda x: x.find_element(by=AppiumBy.IMAGE, value=invasion_battle_ends_img))
             time.sleep(2)
             TouchAction(self.driver).tap(None, *self.invasion_battle_ends_confirm).perform()
@@ -244,7 +245,9 @@ class gameflow():
         time.sleep(1)
         TouchAction(self.driver).tap(None, *self.main_portal).perform()
         time.sleep(1)
-        self.driver.swipe(*self.portal_swipe)
+        self.driver.swipe(*self.portal_swipe_down)
+        time.sleep(1)
+        self.driver.swipe(*self.portal_swipe_up)
         time.sleep(1)
         for mission in (self.portal_energy_mission, self.portal_coins_mission):
             TouchAction(self.driver).tap(None, *mission).perform()
