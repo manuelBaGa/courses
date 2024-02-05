@@ -1,4 +1,6 @@
 bash_shell/9_options.sh.gz
+# General
+*.DS_Store
 *.log
 selenium_course/PythonSelFramework/tests/*.png
 selenium_course/PythonSelFramework/selenium_env

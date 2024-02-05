@@ -53,7 +53,7 @@ class gameflow():
         self.repo_path = repo_path
 
     def load_image(self, image_name):
-        with open(rf"{self.repo_path}\appium\images\{image_name}", "rb") as image_file:
+        with open(rf"{self.repo_path}/appium/images/{image_name}", "rb") as image_file:
             image_base64 = base64.b64encode(image_file.read()).decode("utf-8")
         return image_base64
 
@@ -96,7 +96,7 @@ class gameflow():
         invasion_main_screen_img = self.load_image("invasion_battle_ends.jpg")
         
         print("Empezando mision de invasion")
-        for i in range(2):
+        for i in range(3):
             TouchAction(self.driver).tap(None, *self.main_btn).perform()
             time.sleep(1)
             TouchAction(self.driver).tap(None, *self.main_secondary_screen_btn).perform()

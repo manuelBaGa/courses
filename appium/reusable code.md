@@ -1,5 +1,17 @@
 # Reusable code
 
+### Open new terminal
+
+```
+osascript -e 'tell app "Terminal" to do script "/tmp/task_scheduler.sh event"'
+
+```
+
+### Definig a cron job
+```
+0 */4 * * * /tmp/task_scheduler.sh event &> /tmp/script_log
+```
+
 ### Work with images
 - Start appium with images plugin
 
