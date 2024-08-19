@@ -44,19 +44,20 @@ wait = WebDriverWait(driver, web_driver_wait_val)
 my_gmf = gmf(driver, wait, repo_path)
 
 ### Game flows
-if game_flow == 'event':    
+if game_flow == 'event':
+    my_gmf.driver.update_settings({'imageMatchThreshold':.7})
     my_gmf.open_app(package_name)
     my_gmf.close_initial_game_announcements()
     my_gmf.get_event_energy()
     my_gmf.close_game(package_name)
 elif game_flow == 'daily':
-    my_gmf.open_app(package_name)
-    my_gmf.close_initial_game_announcements()
+    #my_gmf.open_app(package_name)
+    #my_gmf.close_initial_game_announcements()
     my_gmf.get_resources_daily_missions()
     my_gmf.get_resources_arena()
     my_gmf.get_resources_fragments()
-    my_gmf.start_invasion_mission()
     my_gmf.grand_arena_battles(number_of_battles)
+    my_gmf.start_invasion_mission()
     my_gmf.close_game(package_name)
 elif game_flow == 'arena':
     my_gmf.open_app(package_name)
@@ -64,5 +65,9 @@ elif game_flow == 'arena':
     my_gmf.arena_battles()
     my_gmf.close_game(package_name)
 elif game_flow == 'test':
-    print("This is just a test")
+    my_gmf.open_app(package_name)
+    my_gmf.close_initial_game_announcements()
+    #my_gmf.grand_arena_battles(3)
+    #my_gmf.start_invasion_mission()
+    #my_gmf.close_game(package_name)
     

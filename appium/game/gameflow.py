@@ -2,10 +2,19 @@ import time
 import base64
 from appium.webdriver.common.appiumby import AppiumBy
 from appium.webdriver.common.touch_action import TouchAction
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 
 class gameflow():
     middle_screen_x = 800
     middle_screen_y = 1300
+    
+    #Announcements
+    announcements_board_close_btn = (middle_screen_x, 2400)
+    announcement_close_btn = (1200, 2030)
+    login_bonus_confirm_btn = (middle_screen_x, 2400)
+    login_bonus_close_btn = (middle_screen_x, 1800)
+    
     #Main
     main_btn = (190,2460)
     main_portal = (400,1230)
@@ -58,6 +67,7 @@ class gameflow():
         return image_base64
 
     def open_app(self, package_name):
+        self.driver.terminate_app(package_name)
         self.driver.activate_app(package_name)
         # Waiting app to be opened and ready to use
         print("Esperando por la applicacion para abrir")
@@ -69,52 +79,94 @@ class gameflow():
     def close_initial_game_announcements(self):
         #Esperando a que entremos a la pantalla principal
 
-        close_announcement_btn_img = self.load_image("close_announcement_btn.jpg")
-        self.wait.until(lambda x: x.find_element(by=AppiumBy.IMAGE, value=close_announcement_btn_img))
-        print("Cerrando anuncios iniciales del juego")
-        while True:
+        announcement_close_btn_img = self.load_image("close_announcement_btn.jpg")
+        announcements_board_img = self.load_image("announcements_board.jpg")
+        login_bonus_img = self.load_image("login_bonus.jpg")
+        main_screen_img = self.load_image("main_screen_1.jpg")
+        short_wait = WebDriverWait(self.driver,5)
+        
+        try:
+            print("Esperando página de login bonus")
+            self.wait.until(lambda x: x.find_element(by=AppiumBy.IMAGE, value=login_bonus_img))
+            print("Página de Login bonus encontrada...")
+            while True:
+                try:
+                    print("Confirmando premio de login bonus")
+                    TouchAction(self.driver).tap(None,*self.login_bonus_confirm_btn,1).perform()
+                    time.sleep(2)
+                    TouchAction(self.driver).tap(None,*self.login_bonus_close_btn,1).perform()
+                    time.sleep(2)
+                    self.driver.find_element(by=AppiumBy.IMAGE, value=login_bonus_img)
+                except:
+                    break
+        except:
+            print("Página de login bonus no encontrada, buscando tablon de anuncios")
             try:
-                TouchAction(self.driver).tap(None,1200, 2030,1).perform()
+                short_wait.until(lambda x: x.find_element(by=AppiumBy.IMAGE, value=announcements_board_img))
+                print("Tablon de anuncios encontrada...")
                 time.sleep(2)
-                self.driver.find_element(by=AppiumBy.IMAGE, value=close_announcement_btn_img)
+                TouchAction(self.driver).tap(None,*self.announcements_board_close_btn,1).perform()
+                time.sleep(2)
             except:
-                break
+                print("Tablon de anuncios no encontrado, buscando anuncios de eventos")                
+                try:
+                    short_wait.until(lambda x: x.find_element(by=AppiumBy.IMAGE, value=announcement_close_btn_img))
+                    print("Anuncio de evento encontrado...")
+                    while True:
+                        try:
+                            print("Cerrando anuncio de evento")
+                            TouchAction(self.driver).tap(None,*self.announcement_close_btn,1).perform()
+                            time.sleep(2)
+                            self.driver.find_element(by=AppiumBy.IMAGE, value=announcement_close_btn_img)
+                        except:
+                            break
+                except:
+                    print("No más anuncios.... avanzando a pantalla principal")
+        
+        print("Buscando pantalla principal")
+        self.wait.until(lambda x: x.find_element(by=AppiumBy.IMAGE, value=main_screen_img))
+        print("Pantalla principal encontrada")
+        #self.wait.until(EC.or(lambda x: x.find_element(by=AppiumBy.IMAGE, value=close_announcement_btn_img),lambda x: x.find_element(by=AppiumBy.IMAGE, value=main_screen_img)))     
 
     def get_event_energy(self):
         print("Juntando energia del evento")
 
         TouchAction(self.driver).tap(None,800, 1430,1).perform()
-        time.sleep(1)
+        time.sleep(2)
         TouchAction(self.driver).tap(None,260, 2140,1).perform()
-        time.sleep(1)
+        time.sleep(2)
         TouchAction(self.driver).tap(None,1200, 1980,1).perform()
-        time.sleep(1)
-        TouchAction(self.driver).tap(None,800, 1760,1).perform()
-
+        time.sleep(2)
+        TouchAction(self.driver).tap(None,800, 1760,1).perform(
+)
+        
     def start_invasion_mission(self):
         invasion_battle_ends_img = self.load_image("invasion_battle_ends.jpg")
-        invasion_main_screen_img = self.load_image("invasion_battle_ends.jpg")
+        invasion_main_screen_img = self.load_image("invasion_main_screen.jpg")
+        
         
         print("Empezando mision de invasion")
-        for i in range(3):
-            TouchAction(self.driver).tap(None, *self.main_btn).perform()
+        TouchAction(self.driver).tap(None, *self.main_btn).perform()
+        time.sleep(1)
+        TouchAction(self.driver).tap(None, *self.main_secondary_screen_btn).perform()
+        time.sleep(2)
+        TouchAction(self.driver).tap(None, *self.main_invasion).perform()
+        time.sleep(2)
+        for i in range(2):
+            self.wait.until(lambda x: x.find_element(by=AppiumBy.IMAGE, value=invasion_main_screen_img))
             time.sleep(1)
-            TouchAction(self.driver).tap(None, *self.main_secondary_screen_btn).perform()
-            time.sleep(2)
-            TouchAction(self.driver).tap(None, *self.main_invasion).perform()
-            time.sleep(2)
             TouchAction(self.driver).tap(None, *self.invasion_challenge_btn).perform()
             time.sleep(1)
             TouchAction(self.driver).tap(None, *self.invasion_battle_btn).perform()
-            time.sleep(45)
+            time.sleep(30)
             self.wait.until(lambda x: x.find_element(by=AppiumBy.IMAGE, value=invasion_battle_ends_img))
             time.sleep(2)
             TouchAction(self.driver).tap(None, *self.invasion_battle_ends_confirm).perform()
             time.sleep(5)
-            self.wait.until(lambda x: x.find_element(by=AppiumBy.IMAGE, value=invasion_main_screen_img))
-            time.sleep(1)
         TouchAction(self.driver).tap(None, *self.invasion_goback_btn).perform()
         time.sleep(2)
+        #TouchAction(self.driver).tap(None, *self.main_primary_screen_btn).perform()
+        #time.sleep(2)
             
     def arena_battles(self):
         arena_main_screen_img = self.load_image("arena_main_screen.jpg")

@@ -12,6 +12,12 @@ osascript -e 'tell app "Terminal" to do script "/tmp/task_scheduler.sh event"'
 0 */4 * * * /tmp/task_scheduler.sh event &> /tmp/script_log
 ```
 
+### Configuring Mac computer waking times
+```
+pmset repeat wakeorpoweron MTWRFSU 00:59:00
+```
+
+
 ### Work with images
 - Start appium with images plugin
 
