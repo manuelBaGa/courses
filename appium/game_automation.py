@@ -66,8 +66,8 @@ elif game_flow == 'arena':
     my_gmf.close_game(package_name)
 elif game_flow == 'test':
     my_gmf.open_app(package_name)
-    my_gmf.close_initial_game_announcements()
+    #my_gmf.close_initial_game_announcements()
     #my_gmf.grand_arena_battles(3)
     #my_gmf.start_invasion_mission()
-    #my_gmf.close_game(package_name)
+    my_gmf.close_game(package_name)
     

@@ -2,7 +2,7 @@
 date
 AUTOMATION_SEQUENCE=$1
 appium --use-plugins=images --log-level=warn &
-source <(grep = $COURSES_PATH/appium/config.ini) #$COURSES_PATH/appium/config.ini)
+source <(grep =  $PWD/config.ini) #$COURSES_PATH/appium/config.ini)
 DEVICE_ID=$($ADB_DIR devices | grep device | awk 'FNR==2 {print $1}')
 SCREEN_STATUS_LOCK=$($ADB_DIR -s $DEVICE_ID shell dumpsys power | grep -E "mHoldingWakeLockSuspendBlocker=true")
 SCREEN_STATUS_DISPLAY=$($ADB_DIR -s $DEVICE_ID shell dumpsys power | grep -E "mHoldingDisplaySuspendBlocker=true")
