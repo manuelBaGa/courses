@@ -24,8 +24,7 @@ import sys
 def weightedMean(X, W):
     # Write your code here
     weight_scores_sum = [ X[i] * W[i] for i in range(len(X)) ]
-    print(weight_scores_sum)
-    return sum(weight_scores_sum)/sum(W)
+    return print(round(sum(weight_scores_sum)/sum(W),1))
 
 if __name__ == '__main__':
     n = int(input().strip())
