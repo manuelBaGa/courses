@@ -20,3 +20,6 @@
                 fixture and execute test_demoing_pytest.py
 -> Run jenkins:
          java -jar jenkins.war
+
+-> Verify Xpath in Browser console
+    $x("your_xpath")
