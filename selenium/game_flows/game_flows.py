@@ -5,7 +5,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.chrome.service import Service
+import configparser
 import time
+
+config = configparser.ConfigParser()
+config.read(repo_path+'/appium/config.ini')
 
 ##get from configfile
 email = "ma_baga@outlook.com"
