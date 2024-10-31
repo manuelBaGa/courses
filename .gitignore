@@ -7,6 +7,8 @@ selenium_course/PythonSelFramework/selenium_env
 __pycache__
 HTML/imagenes
 .idea/
+**/*.ini
+**/images
 
 # Github_workflows
 github_workflows/node_modules
@@ -14,9 +16,6 @@ github_workflows/.pytest_cache
 github_workflows/package*
 
 # Appium
-appium/images
 appium/*.bat
-appium/*.ini
 
 # Selenium
-selenium/game_flows/*.ini

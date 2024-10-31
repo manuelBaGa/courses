@@ -9,11 +9,11 @@ import configparser
 import time
 
 config = configparser.ConfigParser()
-config.read(repo_path+'/appium/config.ini')
+config.read('./config.ini')
 
 ##get from configfile
-email = "ma_baga@outlook.com"
-password = 'mabg271195nn'
+email = config['ACCOUNT']['EMAIL']
+password = config['ACCOUNT']['PASSWORD']
 
 service_obj = Service()
 chrome_options_obj = Options()
